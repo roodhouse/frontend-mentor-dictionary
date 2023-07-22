@@ -29,10 +29,10 @@ function App() {
           <div id='nounWrapper' className='mb-6'>
             <Noun />
           </div>
-          <div id='synonymsWrapper'>
+          <div id='synonymsWrapper' className='mb-8'>
             <Synonyms />
           </div>
-          <div id='verbWrapper'>
+          <div id='verbWrapper' className='mb-6'>
             <Verb />
           </div>
           <div id='sourceWrapper'>

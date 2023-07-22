@@ -31,7 +31,7 @@
   display: none;
 }
 
-#thePro p {
+#thePro p, #sourceHeading p, #theLink a {
   font-feature-settings: "clig" 0, "liga" 0;
 }
 
@@ -82,6 +82,14 @@
   color: var(--medDark);
 }
 
-.light #defList ul li::marker {
+.light #defList ul li::marker, .light #defVerbList ul li::marker {
   color: var(--purple);
+}
+
+.light #verbShape {
+  background-color: var(--mediumGray);
+}
+
+.light #theLink {
+  color: var(--medDark);
 }
