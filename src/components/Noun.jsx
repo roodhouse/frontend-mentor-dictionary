@@ -8,7 +8,7 @@ function Noun() {
           <div id="noun" className='text-lg font-bold italic md:text-2xl'>
             <p>noun</p>
           </div>
-          <div id="typeShape" className='w-[266px] h-[1px] md:w-[608px]'/>
+          <div id="typeShape" className='w-[266px] h-[1px] md:w-[608px] lg:w-[656px]'/>
         </div>
         <div id="theDef">
           <div id="defHeading" className='text-gray text-base font-normal mb-[17px] md:text-xl md:mb-[25px]'>
