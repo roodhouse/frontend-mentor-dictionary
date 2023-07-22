@@ -20,7 +20,7 @@ function App() {
           <div id='headerWrapper' className='mb-6'>
             <Header />
           </div>
-          <div id='inputWrapper'>
+          <div id='inputWrapper' className='mb-6'>
             <Input />
           </div>
           <div id='wordWrapper'>

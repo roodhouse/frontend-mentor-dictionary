@@ -49,3 +49,15 @@
 .light #sansMenu:hover, .light #serifMenu:hover, .light #monoMenu:hover {
   color: var(--purple);
 }
+
+.light #termContainer input::placeholder {
+  color: var(--medDark);
+}
+
+.light #termContainer input {
+  background-color: var(--lightGray);
+}
+
+.light #inputContainer {
+  background-color: var(--lightGray);
+}
