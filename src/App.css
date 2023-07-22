@@ -23,6 +23,29 @@
   font-family: 'Inconsolata';
 }
 
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+/* light theme */
+
+
 .light .bar {
-  color: var(--mediumGray);
+  background-color: var(--mediumGray);
+}
+
+.light .fontChoice {
+  color: var(--medDark);
+}
+
+.light #fontMenuWrapper {
+  color: var(--medDark);
+  background-color: var(--white);
+}
+
+.light #sansMenu:hover, .light #serifMenu:hover, .light #monoMenu:hover {
+  color: var(--purple);
 }

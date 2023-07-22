@@ -5,7 +5,7 @@ import Theme from './header/Theme'
 function Header() {
   return (
     <>
-      <div id="headerContainer" className='flex justify-between'>
+      <div id="headerContainer" className='flex justify-between items-center'>
         <div id="logoWrapper">
           <Logo />
         </div>
