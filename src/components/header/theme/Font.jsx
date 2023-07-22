@@ -4,8 +4,8 @@ import Arrow from '../../../assets/images/icon-arrow-down.svg'
 function Font() {
   return (
     <>
-      <div id="fontContainer" className='flex items-center'>
-        <div id="fontChoice" className='fontChoice text-right text-sm font-bold leading-[24px] pr-4'>
+      <div id="fontContainer" className='flex items-center cursor-pointer'>
+        <div id="fontChoice" className='fontChoice text-right text-sm font-bold leading-[24px] pr-4 md:text-lg'>
           <p>Sans Serif</p>
         </div>
         <div id="arrow">
@@ -13,13 +13,13 @@ function Font() {
         </div>
         <div id="fontMenuWrapper" className='hidden rounded-2xl absolute top-[68px] right-[127px]'>
           <div id="fontMenuContainer" className='p-6 pr-[60px]'>
-            <div id='sansMenu' className='font-["Inter"] text-sm font-bold leading-6 mb-4 cursor-pointer'>
+            <div id='sansMenu' className='font-["Inter"] text-sm font-bold leading-6 mb-4 cursor-pointer md:text-lg'>
               <p>Sans Serif</p>
             </div>
-            <div id='serifMenu' className='font-["Lora"] text-sm font-bold leading-6 mb-4 cursor-pointer'>
+            <div id='serifMenu' className='font-["Lora"] text-sm font-bold leading-6 mb-4 cursor-pointer md:text-lg'>
               <p>Serif</p>
             </div>
-            <div id='monoMenu' className='font-["Inconsolata"] text-sm font-bold leading-6 cursor-pointer'>
+            <div id='monoMenu' className='font-["Inconsolata"] text-sm font-bold leading-6 cursor-pointer md:text-lg'>
               <p>Mono</p>
             </div>
           </div>
