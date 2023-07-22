@@ -6,6 +6,7 @@ import Noun from '../src/components/Noun'
 import Synonyms from '../src/components/Synonyms'
 import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
+import Error from './components/Error'
 
 // setup layout
 // setup error layout
@@ -35,9 +36,13 @@ function App() {
           <div id='verbWrapper' className='mb-6'>
             <Verb />
           </div>
-          <div id='sourceWrapper'>
+          <div id='sourceWrapper' className=''>
             <Source />
           </div>
+          <div id='errorWrapper' className='hidden'>
+            <Error />
+          </div>
+
         </div>
       </div>
     </div>

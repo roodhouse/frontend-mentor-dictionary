@@ -31,11 +31,15 @@
   display: none;
 }
 
-#thePro p, #sourceHeading p, #theLink a {
+#thePro p, #sourceHeading p, #theLink a, #errorCopy p {
   font-feature-settings: "clig" 0, "liga" 0;
 }
 
 /* light theme */
+
+.light {
+  background-color: var(--white);
+}
 
 .light .bar {
   background-color: var(--mediumGray);
@@ -52,6 +56,10 @@
 
 .light #sansMenu:hover, .light #serifMenu:hover, .light #monoMenu:hover {
   color: var(--purple);
+}
+
+.light #fontMenuWrapper {
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.10);
 }
 
 .light #termContainer input::placeholder {
@@ -92,4 +100,87 @@
 
 .light #theLink {
   color: var(--medDark);
+}
+
+.light #errorHeading {
+  color: var(--medDark);
+}
+
+.light #errorCopy {
+  color: var(--gray);
+}
+
+/* dark theme */
+
+.dark {
+  background-color: var(--black);
+}
+
+.dark .bar {
+  background-color: var(--mediumGray);
+}
+
+.dark .fontChoice {
+  color: var(--white);
+}
+
+.dark #fontMenuWrapper {
+  color: var(--white);
+  background-color: var(--dark);
+}
+
+.dark #sansMenu:hover, .dark #serifMenu:hover, .dark #monoMenu:hover {
+  color: var(--purple);
+}
+
+.dark #fontMenuWrapper {
+  box-shadow: 0px 5px 30px 0px var(--purple);
+}
+
+.dark #termContainer input::placeholder {
+  color: var(--white);
+}
+
+.dark #termContainer input {
+  background-color: var(--dark);
+}
+
+.dark #inputContainer {
+  background-color: var(--dark);
+}
+
+.dark #theWord {
+  color: var(--white);
+}
+
+.dark #typeShape {
+  background-color: var(--lightDark);
+}
+
+.dark #noun {
+  color: var(--white)
+}
+
+.dark #defList ul li {
+  color: var(--white);
+}
+
+.dark #defList ul li::marker, .dark #defVerbList ul li::marker {
+  color: var(--purple);
+}
+
+.dark #verbShape {
+  background-color: var(--lightDark);
+}
+
+.dark #theLink {
+  color: var(--white);
+}
+
+.dark #errorHeading {
+  color: var(--white);
+}
+
+.dark #errorCopy {
+  color: var(--gray);
 }

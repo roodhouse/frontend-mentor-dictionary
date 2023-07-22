@@ -11,7 +11,7 @@ function Font() {
         <div id="arrow">
           <img src={Arrow} alt="arrow" />
         </div>
-        <div id="fontMenuWrapper" className='hidden rounded-2xl shadow-[0px_5px_30px_0px_rgba(0,0,0,0.10);] absolute top-[68px] right-[127px]'>
+        <div id="fontMenuWrapper" className='hidden rounded-2xl absolute top-[68px] right-[127px]'>
           <div id="fontMenuContainer" className='p-6 pr-[60px]'>
             <div id='sansMenu' className='font-["Inter"] text-sm font-bold leading-6 mb-4 cursor-pointer'>
               <p>Sans Serif</p>
