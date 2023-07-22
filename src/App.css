@@ -1,3 +1,16 @@
+:root {
+  --white: #ffffff;
+  --lightGray: #F4F4F4;
+  --mediumGray: #E9E9E9;
+  --gray: #757575;
+  --black: #050505;
+  --dark: #1F1F1F;
+  --medDark: #2D2D2D;
+  --lightDark: #3A3A3A;
+  --purple: #A445ED;
+  --orange: #FF5252;
+}
+
 .sansTheme {
   font-family: 'Inter';
 }
@@ -8,4 +21,8 @@
 
 .monoTheme {
   font-family: 'Inconsolata';
+}
+
+.light .bar {
+  color: var(--mediumGray);
 }

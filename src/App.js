@@ -16,8 +16,8 @@ function App() {
   return (
     <div id='app' className="App sansTheme light">
       <div id='mainWrapper'>
-        <div id='mainContainer'>
-          <div id='headerWrapper'>
+        <div id='mainContainer' className='px-6 pt-6 pb-[85px]'>
+          <div id='headerWrapper' className='mb-6'>
             <Header />
           </div>
           <div id='inputWrapper'>
