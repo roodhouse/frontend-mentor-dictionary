@@ -8,10 +8,10 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// setup layout
-// setup error layout
 // convert colors
 // convert font
+// validate form and add markup
+// add api
 
 function App() {
   return (
