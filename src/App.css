@@ -30,8 +30,12 @@
 .inactive {
   display: none;
 }
-/* light theme */
 
+#thePro p {
+  font-feature-settings: "clig" 0, "liga" 0;
+}
+
+/* light theme */
 
 .light .bar {
   background-color: var(--mediumGray);
@@ -60,4 +64,8 @@
 
 .light #inputContainer {
   background-color: var(--lightGray);
+}
+
+.light #theWord {
+  color: var(--medDark);
 }

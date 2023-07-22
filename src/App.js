@@ -23,7 +23,7 @@ function App() {
           <div id='inputWrapper' className='mb-6'>
             <Input />
           </div>
-          <div id='wordWrapper'>
+          <div id='wordWrapper' className='mb-[29px]'>
             <Word />
           </div>
           <div id='nounWrapper'>
