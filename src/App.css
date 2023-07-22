@@ -69,3 +69,19 @@
 .light #theWord {
   color: var(--medDark);
 }
+
+.light #typeShape {
+  background-color: var(--mediumGray);
+}
+
+.light #noun {
+  color: var(--medDark)
+}
+
+.light #defList ul li {
+  color: var(--medDark);
+}
+
+.light #defList ul li::marker {
+  color: var(--purple);
+}

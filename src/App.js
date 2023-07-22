@@ -26,7 +26,7 @@ function App() {
           <div id='wordWrapper' className='mb-[29px]'>
             <Word />
           </div>
-          <div id='nounWrapper'>
+          <div id='nounWrapper' className='mb-6'>
             <Noun />
           </div>
           <div id='synonymsWrapper'>
