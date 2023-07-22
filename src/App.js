@@ -17,23 +17,23 @@ function App() {
   return (
     <div id='app' className="App sansTheme light">
       <div id='mainWrapper'>
-        <div id='mainContainer' className='px-6 pt-6 pb-[85px]'>
-          <div id='headerWrapper' className='mb-6'>
+        <div id='mainContainer' className='px-6 pt-6 pb-[85px] md:pt-[58px] md:pb-[118px] md:px-10'>
+          <div id='headerWrapper' className='mb-6 md:mb-[52px]'>
             <Header />
           </div>
-          <div id='inputWrapper' className='mb-6'>
+          <div id='inputWrapper' className='mb-6 md:mb-[43px]'>
             <Input />
           </div>
-          <div id='wordWrapper' className='mb-[29px]'>
+          <div id='wordWrapper' className='mb-[29px] md:mb-10'>
             <Word />
           </div>
-          <div id='nounWrapper' className='mb-6'>
+          <div id='nounWrapper' className='mb-6 md:mb-10'>
             <Noun />
           </div>
-          <div id='synonymsWrapper' className='mb-8'>
+          <div id='synonymsWrapper' className='mb-8 md:mb-10'>
             <Synonyms />
           </div>
-          <div id='verbWrapper' className='mb-6'>
+          <div id='verbWrapper' className='mb-6 md:mb-5'>
             <Verb />
           </div>
           <div id='sourceWrapper' className=''>

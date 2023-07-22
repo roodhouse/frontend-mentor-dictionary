@@ -4,10 +4,10 @@ import Search from '../assets/images/icon-search.svg'
 function Input() {
   return (
     <>
-      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl'>
+      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl md:py-5'>
         <form className='flex items-center justify-between'>
           <div id="termContainer">
-            <input type="text" placeholder='keyboard' className='text-base font-bold placeholder:text-base placeholder:font-bold' />
+            <input type="text" placeholder='keyboard' className='text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
           </div>
           <div id="submitContainer" className='flex items-center'>
             <button type='submit'>
