@@ -10,9 +10,9 @@ function Theme() {
           <Font />
         </div>
         <div id="themeBar" className='bar w-[1px] h-8 mr-4'></div>
-        <id id="colorWrapper">
+        <div id="colorWrapper">
           <Color />
-        </id>
+        </div>
       </div>
     </>
   )
