@@ -20,7 +20,7 @@ function onError() {
 
   return (
     <>
-      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border border-transparent md:py-5 mb-2'>
+      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border md:py-5 mb-2'>
         <form noValidate onSubmit={handleSubmit(onSubmit, onError)} className='flex items-center justify-between'>
           <div id="termContainer">
             <input 
