@@ -53,6 +53,8 @@ function App() {
     let sansMenu = document.getElementById('sansMenu')
     let serifMenu = document.getElementById('serifMenu')
     let monoMenu = document.getElementById('monoMenu')
+    let newFont = document.getElementById('fontChoice').firstChild
+    console.log(newFont)
 
     // show the menu
     fontMenuWrapper.classList.remove('hidden')
@@ -61,6 +63,7 @@ function App() {
       app.classList.remove('serifTheme')
       app.classList.remove('monoTheme')
       app.classList.add('sansTheme')
+      newFont.innerHTML = 'Sans Serif'
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
@@ -70,6 +73,7 @@ function App() {
       app.classList.add('serifTheme')
       app.classList.remove('monoTheme')
       app.classList.remove('sansTheme')
+      newFont.innerHTML = 'Serif'
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
@@ -79,6 +83,7 @@ function App() {
       app.classList.remove('serifTheme')
       app.classList.add('monoTheme')
       app.classList.remove('sansTheme')
+      newFont.innerHTML = 'Mono'
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
