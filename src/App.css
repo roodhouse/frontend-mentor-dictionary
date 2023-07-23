@@ -72,7 +72,9 @@
 
 .light #inputContainer {
   background-color: var(--lightGray);
+  border-color: var(--lightGray);
 }
+
 
 .light #theWord {
   color: var(--medDark);
@@ -94,8 +96,16 @@
   color: var(--purple);
 }
 
+.light #verb {
+  color: var(--medDark);
+}
+
 .light #verbShape {
   background-color: var(--mediumGray);
+}
+
+.light #defVerbList ul li {
+  color: var(--medDark);
 }
 
 .light #theLink {
@@ -147,6 +157,7 @@
 
 .dark #inputContainer {
   background-color: var(--dark);
+  border-color: var(--dark);
 }
 
 .dark #theWord {
@@ -167,6 +178,14 @@
 
 .dark #defList ul li::marker, .dark #defVerbList ul li::marker {
   color: var(--purple);
+}
+
+.dark #verb {
+  color: var(--white);
+}
+
+.dark #defVerbList ul li {
+  color: var(--white);
 }
 
 .dark #verbShape {
