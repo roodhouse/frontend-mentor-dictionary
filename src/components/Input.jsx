@@ -16,7 +16,6 @@ function onSubmit(e) {
   let theWord = e.word
   let dictionary = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
   let theLink = dictionary + theWord
-  console.log(theLink)
   fetch(theLink)
     .then(function (response) {
       if (!response.ok) {
@@ -25,18 +24,16 @@ function onSubmit(e) {
      return response.json()
     })
     .then(function(theRes){
-      // console.log(theRes[0].phonetic)
+      console.log(theRes)
       theWord = theRes[0]
       document.getElementById('theWord').firstChild.innerHTML = theWord.word
       document.getElementById('thePro').firstChild.innerHTML = theWord.phonetic
       document.getElementById('theLink').firstChild.innerHTML = theWord.sourceUrls[0]
       document.getElementById('theLink').firstChild.setAttribute('href', theWord.sourceUrls[0])
-      console.log(theWord)
+  
       let meanings = theWord.meanings
-      console.log(meanings)
       let defContainer = document.getElementById('nounContainer')
       meanings.forEach((meaning) => {
-        console.log(meaning)
         let meaningDiv = document.createElement('div')
         let partOfSpeechDiv = document.createElement('div')
         let partOfSpeechContent = document.createElement('p')
@@ -44,6 +41,10 @@ function onSubmit(e) {
         let defHeading = document.createElement('div')
         let shape = document.createElement('div')
         let wordMean = document.createElement('p')
+        let theList = document.createElement('div')
+        let list = document.createElement('ul')
+        let synonyms = document.createElement('div')
+        let synonymsHeading = document.createElement('div')
         
         meaningDiv.setAttribute('id', meaning.partOfSpeech+'Type')
         partOfSpeechDiv.setAttribute('id', meaning.partOfSpeech)
@@ -51,20 +52,36 @@ function onSubmit(e) {
         defHeading.setAttribute('id', meaning.partOfSpeech+'Heading')
         shape.setAttribute('id', meaning.partOfSpeech+'Shape')
         wordMean.innerHTML = 'Meaning'
+        theList.setAttribute('id', meaning.partOfSpeech+'listDiv')
+        list.setAttribute('id', meaning.partOfSpeech+'list')
+        synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
 
         meaningDiv.classList.add('type','flex', 'justify-between', 'items-center', 'mb-[31px]', 'md:mb-10')
         partOfSpeechDiv.classList.add('text-lg', 'font-bold', 'italic', 'md:text-2xl')
         defHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mb-[17px]', 'md:text-xl', 'md:mb-[25px]')
         shape.classList.add('shape', 'w-[266px]', 'h-[1px]', 'md:w-[608px]', 'lg:w-[656px]')
+        theList.classList.add('pl-[14px]')
+        list.classList.add('text-[15px]', 'font-normal', 'leading-6', 'list-disc', 'md:text-lg')
+        synonyms.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
 
         partOfSpeechContent.innerHTML = meaning.partOfSpeech
         document.getElementById('noun').firstChild.innerHTML = meaning.partOfSpeech
         defContainer.append(meaningDiv, theDef)
         meaningDiv.appendChild(partOfSpeechDiv)
-        theDef.appendChild(defHeading)
+        theDef.append(defHeading, theList, synonyms)
         defHeading.appendChild(wordMean)
         meaningDiv.appendChild(shape)
         partOfSpeechDiv.appendChild(partOfSpeechContent)
+        theList.appendChild(list)
+        synonyms.appendChild(synonymsHeading)
+
+        let allTheMeans = meaning.definitions
+        allTheMeans.forEach((defs) => {
+          let item = document.createElement('li')
+          item.classList.add('mb-[13px]')
+          item.innerHTML = defs.definition
+          list.appendChild(item)
+        })
       })
     })
 }
