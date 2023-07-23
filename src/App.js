@@ -9,8 +9,6 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// convert font
-// change the word in the font selection bar
 // validate form and add markup
 // add api
 

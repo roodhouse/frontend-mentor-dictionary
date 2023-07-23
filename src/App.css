@@ -94,8 +94,16 @@
   color: var(--purple);
 }
 
+.light #verb {
+  color: var(--medDark);
+}
+
 .light #verbShape {
   background-color: var(--mediumGray);
+}
+
+.light #defVerbList ul li {
+  color: var(--medDark);
 }
 
 .light #theLink {
@@ -167,6 +175,14 @@
 
 .dark #defList ul li::marker, .dark #defVerbList ul li::marker {
   color: var(--purple);
+}
+
+.dark #verb {
+  color: var(--white);
+}
+
+.dark #defVerbList ul li {
+  color: var(--white);
 }
 
 .dark #verbShape {
