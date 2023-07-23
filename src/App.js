@@ -103,7 +103,7 @@ function App() {
           <div id='headerWrapper' className='mb-6 md:mb-[52px]'>
             <Header />
           </div>
-          <div id='inputWrapper' className='mb-6 md:mb-[43px]'>
+          <div id='inputWrapper' className='mb-6 md:mb-[21px]'>
             <Input />
           </div>
           <div id='wordWrapper' className='mb-[29px] md:mb-10'>

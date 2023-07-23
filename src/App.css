@@ -72,7 +72,9 @@
 
 .light #inputContainer {
   background-color: var(--lightGray);
+  border-color: var(--lightGray);
 }
+
 
 .light #theWord {
   color: var(--medDark);
@@ -155,6 +157,7 @@
 
 .dark #inputContainer {
   background-color: var(--dark);
+  border-color: var(--dark);
 }
 
 .dark #theWord {
