@@ -100,7 +100,7 @@
   color: var(--medDark);
 }
 
-.light #verbShape {
+.light .shape {
   background-color: var(--mediumGray);
 }
 
