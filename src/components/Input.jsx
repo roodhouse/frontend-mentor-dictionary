@@ -72,8 +72,8 @@ function onSubmit(e) {
         defHeading.appendChild(wordMean)
         meaningDiv.appendChild(shape)
         partOfSpeechDiv.appendChild(partOfSpeechContent)
-        theList.appendChild(list)
-        synonyms.appendChild(synonymsHeading)
+        theList.appendChild(list) /// these next 2 ok?
+        synonyms.appendChild(synonymsHeading) /// ahab baby oh baby oh, babay bayb no 
 
         let allTheMeans = meaning.definitions
         allTheMeans.forEach((defs) => {
