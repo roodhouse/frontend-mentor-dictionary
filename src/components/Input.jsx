@@ -43,8 +43,7 @@ function onSubmit(e) {
         let wordMean = document.createElement('p')
         let theList = document.createElement('div')
         let list = document.createElement('ul')
-        let synonyms = document.createElement('div')
-        let synonymsHeading = document.createElement('div')
+
         
         meaningDiv.setAttribute('id', meaning.partOfSpeech+'Type')
         partOfSpeechDiv.setAttribute('id', meaning.partOfSpeech)
@@ -54,7 +53,7 @@ function onSubmit(e) {
         wordMean.innerHTML = 'Meaning'
         theList.setAttribute('id', meaning.partOfSpeech+'listDiv')
         list.setAttribute('id', meaning.partOfSpeech+'list')
-        synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
+        
 
         meaningDiv.classList.add('type','flex', 'justify-between', 'items-center', 'mb-[31px]', 'md:mb-10')
         partOfSpeechDiv.classList.add('text-lg', 'font-bold', 'italic', 'md:text-2xl')
@@ -62,18 +61,18 @@ function onSubmit(e) {
         shape.classList.add('shape', 'w-[266px]', 'h-[1px]', 'md:w-[608px]', 'lg:w-[656px]')
         theList.classList.add('pl-[14px]')
         list.classList.add('text-[15px]', 'font-normal', 'leading-6', 'list-disc', 'md:text-lg')
-        synonyms.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
+        
 
         partOfSpeechContent.innerHTML = meaning.partOfSpeech
         document.getElementById('noun').firstChild.innerHTML = meaning.partOfSpeech
         defContainer.append(meaningDiv, theDef)
         meaningDiv.appendChild(partOfSpeechDiv)
-        theDef.append(defHeading, theList, synonyms)
+        theDef.append(defHeading, theList)
         defHeading.appendChild(wordMean)
         meaningDiv.appendChild(shape)
         partOfSpeechDiv.appendChild(partOfSpeechContent)
-        theList.appendChild(list) /// these next 2 ok?
-        synonyms.appendChild(synonymsHeading) /// ahab baby oh baby oh, babay bayb no 
+        theList.appendChild(list)
+        
 
         let allTheMeans = meaning.definitions
         allTheMeans.forEach((defs) => {
@@ -82,6 +81,29 @@ function onSubmit(e) {
           item.innerHTML = defs.definition
           list.appendChild(item)
         })
+
+        // add synonym section if there is one or more synonyms listed
+        if (meaning.synonyms.length >= 1) {
+          let synonyms = document.createElement('div')
+          let synonymsHeading = document.createElement('div')
+          let synonymTitle = document.createElement('p')
+          let allSynonyms = document.createElement('div')
+  
+          synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
+          synonymTitle.innerHTML = 'Synonyms'
+          allSynonyms.setAttribute('id', meaning.partOfSpeech+'SynonymsList')
+  
+          synonyms.classList.add('flex')
+          synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
+          allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl') // get this to display
+
+          // once the above displays then look through the synos and list them as links
+  
+          synonyms.appendChild(synonymsHeading)
+          synonymsHeading.appendChild(synonymTitle)
+          theDef.append(synonyms)
+
+        }
       })
     })
 }
