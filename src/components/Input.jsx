@@ -1,12 +1,10 @@
-import React, { createElement } from 'react'
+import React, { useEffect } from 'react'
 import Search from '../assets/images/icon-search.svg'
 import { useForm } from 'react-hook-form'
 
-// bring in all the data
-// link up example
-// link up audio
 // mimic the styling from the prototype
 // remove the prototype
+// reset form after click
 
 function Input() {
 
@@ -14,10 +12,24 @@ function Input() {
     word: ''
 }})
 
+useEffect(() => {
+
+  let wordSound = document.getElementById('wordSound').firstChild
+  wordSound.addEventListener('click', () => {
+   let theWordSound = new Audio(wordSound.id)
+   theWordSound.play()
+  })
+
+})
+
 function onSubmit(e) {
   let theWord = e.word
   let dictionary = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
   let theLink = dictionary + theWord
+
+  document.getElementById('wordWrapper').style.display = 'block'
+  document.getElementById('nounWrapper').style.display = 'block'
+  document.getElementById('sourceWrapper').style.display = 'block'
   fetch(theLink)
     .then(function (response) {
       if (!response.ok) {
@@ -32,9 +44,31 @@ function onSubmit(e) {
       document.getElementById('thePro').firstChild.innerHTML = theWord.phonetic
       document.getElementById('theLink').firstChild.innerHTML = theWord.sourceUrls[0]
       document.getElementById('theLink').firstChild.setAttribute('href', theWord.sourceUrls[0])
+
+
+
+      let audio = theRes[0].phonetics;
+      
+      let theAudio;
+      audio.forEach((theSound) => {
+        if (theSound.audio) {
+          theSound = theSound.audio
+          document.getElementById('wordSound').firstChild.setAttribute('id', theSound)
+          // theAudio = new Audio(theSound)
+        } 
+      })
+
+      // let audioButton = document.getElementById('wordSound').firstChild
+      // audioButton.addEventListener('click', ()=> {
+      //   theAudio.play()
+      // })
+
   
       let meanings = theWord.meanings
       let defContainer = document.getElementById('nounContainer')
+      // reset the meaning container to empty before populating it with the new def
+      defContainer.innerHTML = ''
+        
       meanings.forEach((meaning) => {
         let meaningDiv = document.createElement('div')
         let partOfSpeechDiv = document.createElement('div')
@@ -67,22 +101,28 @@ function onSubmit(e) {
         
 
         partOfSpeechContent.innerHTML = meaning.partOfSpeech
-        document.getElementById('noun').firstChild.innerHTML = meaning.partOfSpeech
+        // document.getElementById('noun').firstChild.innerHTML = meaning.partOfSpeech
         defContainer.append(meaningDiv, theDef)
         meaningDiv.appendChild(partOfSpeechDiv)
         theDef.append(defHeading, theList)
         defHeading.appendChild(wordMean)
         meaningDiv.appendChild(shape)
         partOfSpeechDiv.appendChild(partOfSpeechContent)
-        theList.appendChild(list)
-        
+        theList.appendChild(list)        
 
         let allTheMeans = meaning.definitions
         allTheMeans.forEach((defs) => {
           let item = document.createElement('li')
+          let example = document.createElement('p')
           item.classList.add('mb-[13px]')
+          example.classList.add('mt-[13px]', 'text-gray', 'text-[15px]', 'font-normal', 'leading-6', 'mb-[13px]', 'md:text-lg')
+          example.innerHTML = '"'+defs.example+'"'
+          
           item.innerHTML = defs.definition
           list.appendChild(item)
+          if (defs.example) {
+            item.appendChild(example)
+          }
         })
 
         // add synonym section if there is one or more synonyms listed
@@ -99,7 +139,7 @@ function onSubmit(e) {
           synonymLink.innerHTML = meaning.synonyms
           synonymLink.innerHTML = synonymLink.innerHTML.replaceAll(',', ', ')
           synonymTitle.innerHTML = 'Synonyms'
-
+          
           synonyms.classList.add('flex', 'pt-[27px]')
           synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
           allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl')
@@ -112,7 +152,7 @@ function onSubmit(e) {
 
         }
       })
-    })
+    })  
 }
 
 function onError() {

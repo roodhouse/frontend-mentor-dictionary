@@ -4,7 +4,7 @@ function Noun() {
   return (
     <>
       <div id="nounContainer">
-        <div id="theType" className='flex justify-between items-center mb-[31px] md:mb-10'>
+        {/* <div id="theType" className='flex justify-between items-center mb-[31px] md:mb-10'>
           <div id="noun" className='text-lg font-bold italic md:text-2xl'>
             <p>noun</p>
           </div>
@@ -21,7 +21,7 @@ function Noun() {
               <li>A device with keys of a musical keyboard, used to control electronic sound-producing devices which may be built into or separate from the keyboard device.</li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </>
