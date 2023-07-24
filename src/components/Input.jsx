@@ -3,6 +3,8 @@ import Search from '../assets/images/icon-search.svg'
 import { useForm } from 'react-hook-form'
 
 // bring in all the data
+// link up example
+// link up audio
 // mimic the styling from the prototype
 // remove the prototype
 
@@ -57,6 +59,7 @@ function onSubmit(e) {
 
         meaningDiv.classList.add('type','flex', 'justify-between', 'items-center', 'mb-[31px]', 'md:mb-10')
         partOfSpeechDiv.classList.add('text-lg', 'font-bold', 'italic', 'md:text-2xl')
+        theDef.classList.add('mb-8', 'md:mb-10')
         defHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mb-[17px]', 'md:text-xl', 'md:mb-[25px]')
         shape.classList.add('shape', 'w-[266px]', 'h-[1px]', 'md:w-[608px]', 'lg:w-[656px]')
         theList.classList.add('pl-[14px]')
@@ -88,19 +91,23 @@ function onSubmit(e) {
           let synonymsHeading = document.createElement('div')
           let synonymTitle = document.createElement('p')
           let allSynonyms = document.createElement('div')
+          let synonymLink = document.createElement('p')
   
           synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
-          synonymTitle.innerHTML = 'Synonyms'
           allSynonyms.setAttribute('id', meaning.partOfSpeech+'SynonymsList')
-  
-          synonyms.classList.add('flex')
-          synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
-          allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl') // get this to display
+          synonymsHeading.setAttribute('id', meaning.partOfSpeech+'SynonymsHeading')
+          synonymLink.innerHTML = meaning.synonyms
+          synonymLink.innerHTML = synonymLink.innerHTML.replaceAll(',', ', ')
+          synonymTitle.innerHTML = 'Synonyms'
 
-          // once the above displays then look through the synos and list them as links
+          synonyms.classList.add('flex', 'pt-[27px]')
+          synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
+          allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl')
   
           synonyms.appendChild(synonymsHeading)
           synonymsHeading.appendChild(synonymTitle)
+          synonyms.appendChild(allSynonyms)
+          allSynonyms.appendChild(synonymLink)
           theDef.append(synonyms)
 
         }
