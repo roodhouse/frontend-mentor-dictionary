@@ -7,10 +7,10 @@ function Word() {
       <div id="wordContainer" className='flex items-center justify-between'>
         <div id="theWordBody" className='flex flex-col'>
           <div id="theWord" className='lowercase text-[32px] font-bold mb-2 md:text-[64px]'>
-            <h1>Keyboard</h1>
+            <h1></h1>
           </div>
           <div id="thePro" className='font-["Inter"] text-lg font-normal leading-6 text-purple md:text-2xl'>
-            <p>/ˈkiːbɔːd/</p>
+            <p></p>
           </div>
         </div>
         <div id="wordSound">

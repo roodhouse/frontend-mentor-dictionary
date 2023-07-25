@@ -11,6 +11,7 @@ import Error from './components/Error'
 
 // validate form and add markup
 // add api
+// fix dark mode
 
 function App() {
 
@@ -106,19 +107,19 @@ function App() {
           <div id='inputWrapper' className='mb-6 md:mb-[21px]'>
             <Input />
           </div>
-          <div id='wordWrapper' className='mb-[29px] md:mb-10'>
+          <div id='wordWrapper' className='hidden mb-[29px] md:mb-10'>
             <Word />
           </div>
-          <div id='nounWrapper' className='mb-6 md:mb-10 lg:mb-16'>
+          <div id='nounWrapper' className='hidden mb-6 md:mb-10 lg:mb-16'>
             <Noun />
           </div>
-          <div id='synonymsWrapper' className='mb-8 md:mb-10'>
+          <div id='synonymsWrapper' className='hidden mb-8 md:mb-10'>
             <Synonyms />
           </div>
-          <div id='verbWrapper' className='mb-6 md:mb-5'>
+          <div id='verbWrapper' className='hidden mb-6 md:mb-5'>
             <Verb />
           </div>
-          <div id='sourceWrapper' className=''>
+          <div id='sourceWrapper' className='hidden'>
             <Source />
           </div>
           <div id='errorWrapper' className='hidden'>
