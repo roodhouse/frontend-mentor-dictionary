@@ -72,11 +72,16 @@
 
 .light #termContainer input {
   background-color: var(--lightGray);
+  color: var(--medDark)
 }
 
 .light #inputContainer {
   background-color: var(--lightGray);
   border-color: var(--lightGray);
+}
+
+.light #inputContainer:hover {
+  border-color: var(--purple);
 }
 
 
@@ -161,11 +166,16 @@
 
 .dark #termContainer input {
   background-color: var(--dark);
+  color: var(--white);
 }
 
 .dark #inputContainer {
   background-color: var(--dark);
   border-color: var(--dark);
+}
+
+.dark #inputContainer:hover {
+  border-color: var(--purple);
 }
 
 .dark #theWord {

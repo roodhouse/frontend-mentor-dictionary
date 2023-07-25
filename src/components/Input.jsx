@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 
 // mimic the styling from the prototype
 // active states and hover etc
+  // after search the bar is blue
+  // on hover of play icon
 
 function Input() {
 
@@ -176,9 +178,9 @@ function onError() {
 
   return (
     <>
-      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border md:py-5 mb-2'>
+      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border md:py-5 mb-2 cursor-pointer'>
         <form noValidate onSubmit={handleSubmit(onSubmit, onError)} className='flex items-center justify-between'>
-          <div id="termContainer">
+          <div id="termContainer" className='w-full'>
             <input 
               type="text" 
               {...register('word', {
@@ -187,7 +189,7 @@ function onError() {
               id='word' 
               name='word' 
               placeholder='keyboard' 
-              className='text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
+              className='w-[90%] caret-purple focus-visible:outline-0 text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
           </div>
           <div id="submitContainer" className='flex items-center'>
             <button type='submit'>
