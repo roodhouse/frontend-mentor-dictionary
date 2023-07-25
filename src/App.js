@@ -9,9 +9,7 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// validate form and add markup
-// add api
-// fix dark mode
+// add error div on error
 
 function App() {
 
@@ -53,7 +51,6 @@ function App() {
     let serifMenu = document.getElementById('serifMenu')
     let monoMenu = document.getElementById('monoMenu')
     let newFont = document.getElementById('fontChoice').firstChild
-    console.log(newFont)
 
     // show the menu
     fontMenuWrapper.classList.remove('hidden')
