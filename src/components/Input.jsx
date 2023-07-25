@@ -19,144 +19,155 @@ useEffect(() => {
 })
 
 function onSubmit(e) {
+  document.getElementById('errorWrapper').style.display = 'none'
+  document.getElementById('wordWrapper').style.display = 'none'
+  document.getElementById('nounWrapper').style.display = 'none'
+  document.getElementById('sourceWrapper').style.display = 'none'
   let theWord = e.word
   let dictionary = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
   let theLink = dictionary + theWord
 
-  document.getElementById('wordWrapper').style.display = 'block'
-  document.getElementById('nounWrapper').style.display = 'block'
-  document.getElementById('sourceWrapper').style.display = 'block'
   fetch(theLink)
     .then(function (response) {
       if (!response.ok) {
-        throw response.json()
-      }
-     return response.json()
-    })
-    .then(function(theRes){
-      theWord = theRes[0]
-      document.getElementById('theWord').firstChild.innerHTML = theWord.word
-      document.getElementById('thePro').firstChild.innerHTML = theWord.phonetic
-      document.getElementById('theLink').firstChild.innerHTML = theWord.sourceUrls[0]
-      document.getElementById('theLink').firstChild.setAttribute('href', theWord.sourceUrls[0])
-
-
-
-      let audio = theRes[0].phonetics;
-      
-      let theAudio;
-      audio.forEach((theSound) => {
-        if (theSound.audio) {
-          theSound = theSound.audio
-          document.getElementById('wordSound').firstChild.setAttribute('id', theSound)
-        } 
-      })
-
-      let meanings = theWord.meanings
-      let defContainer = document.getElementById('nounContainer')
-      // reset the meaning container to empty before populating it with the new def
-      defContainer.innerHTML = ''
+        // throw response.json()
+        document.getElementById('errorWrapper').style.display = 'block'
         
-      meanings.forEach((meaning) => {
-        let meaningDiv = document.createElement('div')
-        let partOfSpeechDiv = document.createElement('div')
-        let partOfSpeechContent = document.createElement('h2')
-        let theDef = document.createElement('div')
-        let defHeading = document.createElement('div')
-        let shape = document.createElement('div')
-        let wordMean = document.createElement('p')
-        let theList = document.createElement('div')
-        let list = document.createElement('ul')
+      } else {
 
-        
-        meaningDiv.setAttribute('id', meaning.partOfSpeech+'Type')
-        partOfSpeechDiv.setAttribute('id', meaning.partOfSpeech)
-        theDef.setAttribute('id', meaning.partOfSpeech+'TheDef')
-        defHeading.setAttribute('id', meaning.partOfSpeech+'Heading')
-        shape.setAttribute('id', meaning.partOfSpeech+'Shape')
-        wordMean.innerHTML = 'Meaning'
-        theList.setAttribute('id', meaning.partOfSpeech+'listDiv')
-        list.setAttribute('id', meaning.partOfSpeech+'list')
-        
-
-        meaningDiv.classList.add('type','flex', 'justify-between', 'items-center', 'mb-[31px]', 'md:mb-10')
-        partOfSpeechDiv.classList.add('text-lg', 'font-bold', 'italic', 'md:text-2xl')
-        theDef.classList.add('mb-8', 'md:mb-10')
-        defHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mb-[17px]', 'md:text-xl', 'md:mb-[25px]')
-        shape.classList.add('shape', 'w-[266px]', 'h-[1px]', 'md:w-[608px]', 'lg:w-[656px]')
-        theList.classList.add('pl-[14px]')
-        list.classList.add('text-[15px]', 'font-normal', 'leading-6', 'list-disc', 'md:text-lg')
-        
-
-        partOfSpeechContent.innerHTML = meaning.partOfSpeech
-        defContainer.append(meaningDiv, theDef)
-        meaningDiv.appendChild(partOfSpeechDiv)
-        theDef.append(defHeading, theList)
-        defHeading.appendChild(wordMean)
-        meaningDiv.appendChild(shape)
-        partOfSpeechDiv.appendChild(partOfSpeechContent)
-        theList.appendChild(list)        
-
-        let allTheMeans = meaning.definitions
-        allTheMeans.forEach((defs) => {
-          let item = document.createElement('li')
-          let example = document.createElement('p')
-          item.classList.add('mb-[13px]')
-          example.classList.add('mt-[13px]', 'text-gray', 'text-[15px]', 'font-normal', 'leading-6', 'mb-[13px]', 'md:text-lg')
-          example.innerHTML = '"'+defs.example+'"'
+        return response.json()
+        // do i need to add all of this below to the else block above?
+        .then(function(theRes){
+          document.getElementById('wordWrapper').style.display = 'block'
+          document.getElementById('nounWrapper').style.display = 'block'
+          document.getElementById('sourceWrapper').style.display = 'block'
+          theWord = theRes[0]
+          document.getElementById('theWord').firstChild.innerHTML = theWord.word
+          document.getElementById('thePro').firstChild.innerHTML = theWord.phonetic
+          document.getElementById('theLink').firstChild.innerHTML = theWord.sourceUrls[0]
+          document.getElementById('theLink').firstChild.setAttribute('href', theWord.sourceUrls[0])
+    
+    
+    
+          let audio = theRes[0].phonetics;
           
-          item.innerHTML = defs.definition
-          list.appendChild(item)
-          if (defs.example) {
-            item.appendChild(example)
-          }
-        })
-
-        // add synonym section if there is one or more synonyms listed
-        if (meaning.synonyms.length >= 1) {
-          let synonyms = document.createElement('div')
-          let synonymsHeading = document.createElement('div')
-          let synonymTitle = document.createElement('p')
-          let allSynonyms = document.createElement('div')
-
-          meaning.synonyms.forEach((link) => {
-            let synonymLink = document.createElement('a')
-            synonymLink.setAttribute('href', link)
-            synonymLink.classList.add('hover:underline')
-            allSynonyms.appendChild(synonymLink)
-            let lastItem = meaning.synonyms.slice(-1)
-            lastItem = lastItem.toString()
-            if (link !== lastItem) {
-              synonymLink.innerHTML = link + ', '
-            } else {
-              synonymLink.innerHTML = link
-            }
-
+          let theAudio;
+          audio.forEach((theSound) => {
+            if (theSound.audio) {
+              theSound = theSound.audio
+              document.getElementById('wordSound').firstChild.setAttribute('id', theSound)
+            } 
           })
-  
-          synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
-          allSynonyms.setAttribute('id', meaning.partOfSpeech+'SynonymsList')
-          synonymsHeading.setAttribute('id', meaning.partOfSpeech+'SynonymsHeading')
-          synonymTitle.innerHTML = 'Synonyms'
-          
-          synonyms.classList.add('flex', 'pt-[27px]')
-          synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
-          allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl')
-  
-          synonyms.appendChild(synonymsHeading)
-          synonymsHeading.appendChild(synonymTitle)
-          synonyms.appendChild(allSynonyms)
-          theDef.append(synonyms)
+    
+          let meanings = theWord.meanings
+          let defContainer = document.getElementById('nounContainer')
+          // reset the meaning container to empty before populating it with the new def
+          defContainer.innerHTML = ''
+            
+          meanings.forEach((meaning) => {
+            let meaningDiv = document.createElement('div')
+            let partOfSpeechDiv = document.createElement('div')
+            let partOfSpeechContent = document.createElement('h2')
+            let theDef = document.createElement('div')
+            let defHeading = document.createElement('div')
+            let shape = document.createElement('div')
+            let wordMean = document.createElement('p')
+            let theList = document.createElement('div')
+            let list = document.createElement('ul')
+    
+            
+            meaningDiv.setAttribute('id', meaning.partOfSpeech+'Type')
+            partOfSpeechDiv.setAttribute('id', meaning.partOfSpeech)
+            theDef.setAttribute('id', meaning.partOfSpeech+'TheDef')
+            defHeading.setAttribute('id', meaning.partOfSpeech+'Heading')
+            shape.setAttribute('id', meaning.partOfSpeech+'Shape')
+            wordMean.innerHTML = 'Meaning'
+            theList.setAttribute('id', meaning.partOfSpeech+'listDiv')
+            list.setAttribute('id', meaning.partOfSpeech+'list')
+            
+    
+            meaningDiv.classList.add('type','flex', 'justify-between', 'items-center', 'mb-[31px]', 'md:mb-10')
+            partOfSpeechDiv.classList.add('text-lg', 'font-bold', 'italic', 'md:text-2xl')
+            theDef.classList.add('mb-8', 'md:mb-10')
+            defHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mb-[17px]', 'md:text-xl', 'md:mb-[25px]')
+            shape.classList.add('shape', 'w-[266px]', 'h-[1px]', 'md:w-[608px]', 'lg:w-[656px]')
+            theList.classList.add('pl-[14px]')
+            list.classList.add('text-[15px]', 'font-normal', 'leading-6', 'list-disc', 'md:text-lg')
+            
+    
+            partOfSpeechContent.innerHTML = meaning.partOfSpeech
+            defContainer.append(meaningDiv, theDef)
+            meaningDiv.appendChild(partOfSpeechDiv)
+            theDef.append(defHeading, theList)
+            defHeading.appendChild(wordMean)
+            meaningDiv.appendChild(shape)
+            partOfSpeechDiv.appendChild(partOfSpeechContent)
+            theList.appendChild(list)        
+    
+            let allTheMeans = meaning.definitions
+            allTheMeans.forEach((defs) => {
+              let item = document.createElement('li')
+              let example = document.createElement('p')
+              item.classList.add('mb-[13px]')
+              example.classList.add('mt-[13px]', 'text-gray', 'text-[15px]', 'font-normal', 'leading-6', 'mb-[13px]', 'md:text-lg')
+              example.innerHTML = '"'+defs.example+'"'
+              
+              item.innerHTML = defs.definition
+              list.appendChild(item)
+              if (defs.example) {
+                item.appendChild(example)
+              }
+            })
+    
+            // add synonym section if there is one or more synonyms listed
+            if (meaning.synonyms.length >= 1) {
+              let synonyms = document.createElement('div')
+              let synonymsHeading = document.createElement('div')
+              let synonymTitle = document.createElement('p')
+              let allSynonyms = document.createElement('div')
+    
+              meaning.synonyms.forEach((link) => {
+                let synonymLink = document.createElement('a')
+                synonymLink.setAttribute('href', link)
+                synonymLink.classList.add('hover:underline')
+                allSynonyms.appendChild(synonymLink)
+                let lastItem = meaning.synonyms.slice(-1)
+                lastItem = lastItem.toString()
+                if (link !== lastItem) {
+                  synonymLink.innerHTML = link + ', '
+                } else {
+                  synonymLink.innerHTML = link
+                }
+    
+              })
+      
+              synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
+              allSynonyms.setAttribute('id', meaning.partOfSpeech+'SynonymsList')
+              synonymsHeading.setAttribute('id', meaning.partOfSpeech+'SynonymsHeading')
+              synonymTitle.innerHTML = 'Synonyms'
+              
+              synonyms.classList.add('flex', 'pt-[27px]')
+              synonymsHeading.classList.add('text-gray', 'text-base', 'font-normal', 'mr-6', 'md:text-xl')
+              allSynonyms.classList.add('text-purple', 'text-base', 'font-bold', 'md:text-xl')
+      
+              synonyms.appendChild(synonymsHeading)
+              synonymsHeading.appendChild(synonymTitle)
+              synonyms.appendChild(allSynonyms)
+              theDef.append(synonyms)
+    
+            }
+          })
+        })  
+      }
+    })
 
-        }
-      })
-    })  
 }
 
 function onError() {
   console.log('error')
   document.getElementById('errorDiv').firstChild.style.display = 'block'
   document.getElementById('inputContainer').style.borderColor = '#FF5252'
+
 }
 
   return (
