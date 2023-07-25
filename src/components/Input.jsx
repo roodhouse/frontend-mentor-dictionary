@@ -3,8 +3,7 @@ import Search from '../assets/images/icon-search.svg'
 import { useForm } from 'react-hook-form'
 
 // mimic the styling from the prototype
-// remove the prototype
-// reset form after click
+// active states and hover etc
 
 function Input() {
 
@@ -72,7 +71,7 @@ function onSubmit(e) {
       meanings.forEach((meaning) => {
         let meaningDiv = document.createElement('div')
         let partOfSpeechDiv = document.createElement('div')
-        let partOfSpeechContent = document.createElement('p')
+        let partOfSpeechContent = document.createElement('h2')
         let theDef = document.createElement('div')
         let defHeading = document.createElement('div')
         let shape = document.createElement('div')
@@ -131,13 +130,28 @@ function onSubmit(e) {
           let synonymsHeading = document.createElement('div')
           let synonymTitle = document.createElement('p')
           let allSynonyms = document.createElement('div')
-          let synonymLink = document.createElement('p')
+
+          meaning.synonyms.forEach((link) => {
+            let synonymLink = document.createElement('a')
+            // synonymLink.innerHTML = link
+            synonymLink.setAttribute('href', link)
+            synonymLink.classList.add('hover:underline')
+            allSynonyms.appendChild(synonymLink)
+            let lastItem = meaning.synonyms.slice(-1)
+            lastItem = lastItem.toString()
+            console.log(lastItem)
+            console.log(link)
+            if (link !== lastItem) {
+              synonymLink.innerHTML = link + ', '
+            } else {
+              synonymLink.innerHTML = link
+            }
+
+          })
   
           synonyms.setAttribute('id', meaning.partOfSpeech+'Synonyms')
           allSynonyms.setAttribute('id', meaning.partOfSpeech+'SynonymsList')
           synonymsHeading.setAttribute('id', meaning.partOfSpeech+'SynonymsHeading')
-          synonymLink.innerHTML = meaning.synonyms
-          synonymLink.innerHTML = synonymLink.innerHTML.replaceAll(',', ', ')
           synonymTitle.innerHTML = 'Synonyms'
           
           synonyms.classList.add('flex', 'pt-[27px]')
@@ -147,7 +161,6 @@ function onSubmit(e) {
           synonyms.appendChild(synonymsHeading)
           synonymsHeading.appendChild(synonymTitle)
           synonyms.appendChild(allSynonyms)
-          allSynonyms.appendChild(synonymLink)
           theDef.append(synonyms)
 
         }

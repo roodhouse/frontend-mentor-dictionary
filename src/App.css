@@ -41,6 +41,10 @@
   background-color: var(--white);
 }
 
+.light h2 {
+  color: var(--medDark);
+}
+
 .light .bar {
   background-color: var(--mediumGray);
 }
@@ -88,7 +92,7 @@
   color: var(--medDark)
 }
 
-.light #defList ul li {
+.light ul li {
   color: var(--medDark);
 }
 
@@ -124,6 +128,10 @@
 
 .dark {
   background-color: var(--black);
+}
+
+.dark h2 {
+  color: var(--white);
 }
 
 .dark .bar {
@@ -172,7 +180,7 @@
   color: var(--white)
 }
 
-.dark #defList ul li {
+.dark ul li {
   color: var(--white);
 }
 
