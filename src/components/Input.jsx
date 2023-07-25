@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import Search from '../assets/images/icon-search.svg'
 import { useForm } from 'react-hook-form'
 
-// mimic the styling from the prototype
-// active states and hover etc
-
 function Input() {
 
   const { register, resetField, handleSubmit, formState: {errors} } = useForm({defaultValues: {
@@ -37,7 +34,6 @@ function onSubmit(e) {
      return response.json()
     })
     .then(function(theRes){
-      console.log(theRes)
       theWord = theRes[0]
       document.getElementById('theWord').firstChild.innerHTML = theWord.word
       document.getElementById('thePro').firstChild.innerHTML = theWord.phonetic
@@ -53,16 +49,9 @@ function onSubmit(e) {
         if (theSound.audio) {
           theSound = theSound.audio
           document.getElementById('wordSound').firstChild.setAttribute('id', theSound)
-          // theAudio = new Audio(theSound)
         } 
       })
 
-      // let audioButton = document.getElementById('wordSound').firstChild
-      // audioButton.addEventListener('click', ()=> {
-      //   theAudio.play()
-      // })
-
-  
       let meanings = theWord.meanings
       let defContainer = document.getElementById('nounContainer')
       // reset the meaning container to empty before populating it with the new def
@@ -100,7 +89,6 @@ function onSubmit(e) {
         
 
         partOfSpeechContent.innerHTML = meaning.partOfSpeech
-        // document.getElementById('noun').firstChild.innerHTML = meaning.partOfSpeech
         defContainer.append(meaningDiv, theDef)
         meaningDiv.appendChild(partOfSpeechDiv)
         theDef.append(defHeading, theList)
@@ -133,14 +121,11 @@ function onSubmit(e) {
 
           meaning.synonyms.forEach((link) => {
             let synonymLink = document.createElement('a')
-            // synonymLink.innerHTML = link
             synonymLink.setAttribute('href', link)
             synonymLink.classList.add('hover:underline')
             allSynonyms.appendChild(synonymLink)
             let lastItem = meaning.synonyms.slice(-1)
             lastItem = lastItem.toString()
-            console.log(lastItem)
-            console.log(link)
             if (link !== lastItem) {
               synonymLink.innerHTML = link + ', '
             } else {
@@ -176,9 +161,9 @@ function onError() {
 
   return (
     <>
-      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border md:py-5 mb-2'>
+      <div id="inputContainer" className='px-6 py-[14px] rounded-2xl border md:py-5 mb-2 cursor-pointer'>
         <form noValidate onSubmit={handleSubmit(onSubmit, onError)} className='flex items-center justify-between'>
-          <div id="termContainer">
+          <div id="termContainer" className='w-full'>
             <input 
               type="text" 
               {...register('word', {
@@ -187,7 +172,7 @@ function onError() {
               id='word' 
               name='word' 
               placeholder='keyboard' 
-              className='text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
+              className='w-[90%] caret-purple focus-visible:outline-none text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
           </div>
           <div id="submitContainer" className='flex items-center'>
             <button type='submit'>

@@ -1,5 +1,4 @@
 import React from 'react'
-import WordSound from '../assets/images/icon-play.svg'
 
 function Word() {
   return (
@@ -14,8 +13,7 @@ function Word() {
           </div>
         </div>
         <div id="wordSound">
-          <button>
-            <img src={WordSound} alt="how the word sounds" className='w-[48px] h-[48px] md:w-[75px] md:h-[75px]' />
+          <button className='bg-[url("../src/assets/images/icon-play.svg")] hover:bg-[url("../src/assets/images/icon-play-hover.svg")] w-[48px] h-[48px] md:w-[75px] md:h-[75px]'>
           </button>
         </div>
       </div>
