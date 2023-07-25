@@ -9,8 +9,6 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// add error div on error
-
 function App() {
 
   // Change theme
@@ -95,7 +93,7 @@ function App() {
   }
 
   return (
-    <div id='app' className="App sansTheme light">
+    <div id='app' className="App sansTheme light h-screen">
       <div id='mainWrapper'>
         <div id='mainContainer' className='px-6 pt-6 pb-[85px] md:pt-[58px] md:pb-[118px] md:px-10 xl:px-[352px]'>
           <div id='headerWrapper' className='mb-6 md:mb-[52px]'>
