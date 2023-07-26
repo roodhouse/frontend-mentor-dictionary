@@ -9,7 +9,14 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
+// add local storgage for font and color pref
+// figure out prefers-color-scheme` in CSS
+
 function App() {
+
+  const [themeChoice, setThemeChoice] = useState(localStorage.getItem('themeChoice'))
+  const [fontChoice, setFontChoice] = useState(localStorage.getItem('fontChoice'))
+
 
   // Change theme
   useEffect(() => {
@@ -19,6 +26,36 @@ function App() {
     colorContainer.addEventListener('click', changeColor)
     fontContainer.addEventListener('mouseover', changeFont)
     fontContainer.addEventListener('mouseout', hideMenu)
+
+    if (themeChoice !== 'light') {
+      document.getElementById('app').classList.remove('light')
+      document.getElementById('app').classList.add('dark')
+      document.getElementById('lightColorChoice').classList.remove('active')
+      document.getElementById('lightColorChoice').classList.add('inactive') 
+      document.getElementById('darkColorChoice').classList.remove('inactive')
+      document.getElementById('darkColorChoice').classList.add('active') 
+    }
+
+    if (fontChoice === 'sansTheme' ) {
+      document.getElementById('app').classList.add('sansTheme')
+      document.getElementById('app').classList.remove('serifTheme')
+      document.getElementById('app').classList.remove('monoTheme')
+      
+    }
+
+    if (fontChoice === 'serifTheme' ) {
+      document.getElementById('app').classList.remove('sansTheme')
+      document.getElementById('app').classList.add('serifTheme')
+      document.getElementById('app').classList.remove('monoTheme')
+      
+    }
+
+    if (fontChoice === 'monoTheme' ) {
+      document.getElementById('app').classList.remove('sansTheme')
+      document.getElementById('app').classList.remove('serifTheme')
+      document.getElementById('app').classList.add('monoTheme')
+      
+    }
   },[])
 
   function changeColor() {
@@ -32,6 +69,7 @@ function App() {
       lightTheme.classList.add('inactive')
       darkTheme.classList.remove('inactive')
       darkTheme.classList.add('active')
+      localStorage.setItem('themeChoice', 'dark')
     } else {
       app.classList.remove('dark')
       app.classList.add('light')
@@ -39,6 +77,7 @@ function App() {
       lightTheme.classList.add('active')
       darkTheme.classList.remove('active')
       darkTheme.classList.add('inactive')
+      localStorage.setItem('themeChoice', 'light')
     }
   }
 
@@ -58,6 +97,7 @@ function App() {
       app.classList.remove('monoTheme')
       app.classList.add('sansTheme')
       newFont.innerHTML = 'Sans Serif'
+      localStorage.setItem('fontChoice', 'sansTheme')
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
@@ -68,6 +108,7 @@ function App() {
       app.classList.remove('monoTheme')
       app.classList.remove('sansTheme')
       newFont.innerHTML = 'Serif'
+      localStorage.setItem('fontChoice', 'serifTheme')
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
@@ -78,6 +119,7 @@ function App() {
       app.classList.add('monoTheme')
       app.classList.remove('sansTheme')
       newFont.innerHTML = 'Mono'
+      localStorage.setItem('fontChoice', 'monoTheme')
       setTimeout(() => {
         fontMenuWrapper.classList.add('hidden')
       }, 200)
