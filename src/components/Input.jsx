@@ -226,8 +226,8 @@ function onError() {
               })}
               id='word' 
               name='word' 
-              placeholder='keyboard' 
-              className='w-[90%] caret-purple focus-visible:outline-none text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl' />
+              placeholder='Lookup a word...' 
+              className='w-[90%] caret-purple focus-visible:outline-none text-base font-bold placeholder:text-base placeholder:font-bold md:text-xl md:placeholder:text-xl placeholder:opacity-25' />
           </div>
           <div id="submitContainer" className='flex items-center'>
             <button type='submit'>
