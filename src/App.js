@@ -9,8 +9,6 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// figure out prefers-color-scheme` in CSS
-
 function App() {
 
   const [themeChoice, setThemeChoice] = useState(localStorage.getItem('themeChoice'))
