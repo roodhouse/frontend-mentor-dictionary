@@ -128,14 +128,14 @@ function onSubmit(e) {
               let synonymsHeading = document.createElement('div')
               let synonymTitle = document.createElement('p')
               let allSynonyms = document.createElement('div')
-              let synonymPara = document.createElement('p')
+              let synonymPara = document.createElement('div')
 
               synonymPara.setAttribute('id', meaning.partOfSpeech + 'synonymPara')
 
               synonymPara.classList.add('flex', 'flex-wrap')
               
               meaning.synonyms.forEach((link) => {
-                let synonymLinkDiv = document.createElement('div')
+                let synonymLinkDiv = document.createElement('p')
                 let synonymLink = document.createElement('a')
                 synonymLink.setAttribute('href', link)
                 synonymLink.classList.add('hover:underline')
@@ -177,15 +177,24 @@ function onSubmit(e) {
               theKids.forEach((kid) => {
               
                 if (kid.firstChild.innerHTML !== lastKid) {
-                  
+              
                   let child = kid.firstChild  
+              
                   let text = child.textContent;
-                  child.textContent = text + ', ';
+                  child.textContent = text + ',';
                 } else {
                   console.log('last kid')
                 }
-                
               
+                
+              })
+              
+              theKids.forEach((kid) => {
+                let nbsp = '&nbsp'
+                console.log(typeof kid)
+                console.log(kid.innerHTML)
+                console.log(nbsp)
+                kid.innerHTML = kid.innerHTML + nbsp
               })
             }
 
