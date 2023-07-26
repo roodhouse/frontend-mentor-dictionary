@@ -1,6 +1,5 @@
 {
   "name": "frontend-mentor-dictionary",
-  "homepage": "https://roodhouse.github.io/frontend-mentor-dictionary/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
