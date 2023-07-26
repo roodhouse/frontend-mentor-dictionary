@@ -39,7 +39,6 @@ function onSubmit(e) {
   fetch(theLink)
     .then(function (response) {
       if (!response.ok) {
-        // throw response.json()
         document.getElementById('errorWrapper').style.display = 'block'
         
       } else {

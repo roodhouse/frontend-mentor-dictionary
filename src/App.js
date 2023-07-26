@@ -9,8 +9,6 @@ import Verb from '../src/components/Verb'
 import Source from '../src/components/Source'
 import Error from './components/Error'
 
-// add local storgage for font and color pref
-  // change the dropdown menu option on load and the font
 // figure out prefers-color-scheme` in CSS
 
 function App() {
