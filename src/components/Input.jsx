@@ -193,7 +193,7 @@ function onSubmit(e) {
             }
 
             // create new height of the app if the results height is larger than the screen
-            let newHeight = document.getElementById('nounWrapper').clientHeight
+            let newHeight = document.getElementById('mainContainer').clientHeight
             let app = document.getElementById('app')
           
             if (newHeight >= appHeight) {
