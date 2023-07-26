@@ -137,8 +137,8 @@ function App() {
   }
 
   return (
-    <div id='app' className="App sansTheme light h-screen">
-      <div id='mainWrapper'>
+    <div id='app' className="App sansTheme light h-screen flex justify-center">
+      <div id='mainWrapper' className='w-full max-w-[375px] md:max-w-[768px] xl:max-w-[1280px] 2xl:max-w-[1536px]'>
         <div id='mainContainer' className='px-6 pt-6 pb-[85px] md:pt-[58px] md:pb-[118px] md:px-10 xl:px-[352px]'>
           <div id='headerWrapper' className='mb-6 md:mb-[52px]'>
             <Header />

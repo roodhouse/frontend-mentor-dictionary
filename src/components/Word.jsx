@@ -13,7 +13,7 @@ function Word() {
           </div>
         </div>
         <div id="wordSound">
-          <button className='bg-[url("../src/assets/images/icon-play.svg")] hover:bg-[url("../src/assets/images/icon-play-hover.svg")] w-[48px] h-[48px] md:w-[75px] md:h-[75px]'>
+          <button className='bg-[url("../src/assets/images/icon-play.svg")] bg-cover hover:bg-[url("../src/assets/images/icon-play-hover.svg")] w-[48px] h-[48px] md:w-[75px] md:h-[75px]'>
           </button>
         </div>
       </div>
