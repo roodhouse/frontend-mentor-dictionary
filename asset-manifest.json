@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend-mentor-dictionary/static/css/main.08d2d2ae.css",
-    "main.js": "/frontend-mentor-dictionary/static/js/main.fa29fdf1.js",
+    "main.js": "/frontend-mentor-dictionary/static/js/main.69327768.js",
     "index.html": "/frontend-mentor-dictionary/index.html",
     "static/media/darkThemeHoverToggle.svg": "/frontend-mentor-dictionary/static/media/darkThemeHoverToggle.6ae8db812f7468cff155.svg",
     "static/media/darkThemeToggle.svg": "/frontend-mentor-dictionary/static/media/darkThemeToggle.ac26a804155d35ca0f58.svg",
@@ -14,10 +14,10 @@
     "static/media/icon-play.svg": "/frontend-mentor-dictionary/static/media/icon-play.a659db0104303a8b8ae0.svg",
     "static/media/icon-arrow-down.svg": "/frontend-mentor-dictionary/static/media/icon-arrow-down.aa902848ffe2b4ed5369af17076de50d.svg",
     "main.08d2d2ae.css.map": "/frontend-mentor-dictionary/static/css/main.08d2d2ae.css.map",
-    "main.fa29fdf1.js.map": "/frontend-mentor-dictionary/static/js/main.fa29fdf1.js.map"
+    "main.69327768.js.map": "/frontend-mentor-dictionary/static/js/main.69327768.js.map"
   },
   "entrypoints": [
     "static/css/main.08d2d2ae.css",
-    "static/js/main.fa29fdf1.js"
+    "static/js/main.69327768.js"
   ]
 }
