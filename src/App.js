@@ -41,6 +41,8 @@ function App() {
       document.getElementById('app').classList.add('sansTheme')
       document.getElementById('app').classList.remove('serifTheme')
       document.getElementById('app').classList.remove('monoTheme')
+      let newFont = document.getElementById('fontChoice').firstChild
+      newFont.innerHTML = 'Sans Serif'
       
     }
 
@@ -48,6 +50,8 @@ function App() {
       document.getElementById('app').classList.remove('sansTheme')
       document.getElementById('app').classList.add('serifTheme')
       document.getElementById('app').classList.remove('monoTheme')
+      let newFont = document.getElementById('fontChoice').firstChild
+      newFont.innerHTML = 'Serif'
       
     }
 
@@ -55,7 +59,8 @@ function App() {
       document.getElementById('app').classList.remove('sansTheme')
       document.getElementById('app').classList.remove('serifTheme')
       document.getElementById('app').classList.add('monoTheme')
-      
+      let newFont = document.getElementById('fontChoice').firstChild
+      newFont.innerHTML = 'Mono'
     }
   },[])
 
