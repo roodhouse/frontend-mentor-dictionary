@@ -175,18 +175,13 @@ function onSubmit(e) {
               lastKid = lastKid[0].firstChild.innerHTML
               
               theKids.forEach((kid) => {
-              
                 if (kid.firstChild.innerHTML !== lastKid) {
-              
                   let child = kid.firstChild  
-              
                   let text = child.textContent;
                   child.textContent = text + ',';
                 } else {
                   console.log('last kid')
                 }
-              
-                
               })
               
               theKids.forEach((kid) => {
