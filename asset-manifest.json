@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/frontend-mentor-dictionary/static/css/main.08d2d2ae.css",
+    "main.js": "/frontend-mentor-dictionary/static/js/main.fa29fdf1.js",
+    "index.html": "/frontend-mentor-dictionary/index.html",
+    "static/media/darkThemeHoverToggle.svg": "/frontend-mentor-dictionary/static/media/darkThemeHoverToggle.6ae8db812f7468cff155.svg",
+    "static/media/darkThemeToggle.svg": "/frontend-mentor-dictionary/static/media/darkThemeToggle.ac26a804155d35ca0f58.svg",
+    "static/media/lightThemeHoverToggle.svg": "/frontend-mentor-dictionary/static/media/lightThemeHoverToggle.adc60c4bd4a0d6df1db0.svg",
+    "static/media/lightThemeToggle.svg": "/frontend-mentor-dictionary/static/media/lightThemeToggle.0e9c2a7007ecf8e5c2ab.svg",
+    "static/media/icon-new-window.svg": "/frontend-mentor-dictionary/static/media/icon-new-window.17ac2f0f91916515096e759611fdaea9.svg",
+    "static/media/logo.svg": "/frontend-mentor-dictionary/static/media/logo.afbe15e827b060eab1c775e3afad2b73.svg",
+    "static/media/icon-search.svg": "/frontend-mentor-dictionary/static/media/icon-search.13357ba7763bb4388cba203d0388c375.svg",
+    "static/media/icon-play-hover.svg": "/frontend-mentor-dictionary/static/media/icon-play-hover.18dfc03c4c62f92583bf.svg",
+    "static/media/icon-play.svg": "/frontend-mentor-dictionary/static/media/icon-play.a659db0104303a8b8ae0.svg",
+    "static/media/icon-arrow-down.svg": "/frontend-mentor-dictionary/static/media/icon-arrow-down.aa902848ffe2b4ed5369af17076de50d.svg",
+    "main.08d2d2ae.css.map": "/frontend-mentor-dictionary/static/css/main.08d2d2ae.css.map",
+    "main.fa29fdf1.js.map": "/frontend-mentor-dictionary/static/js/main.fa29fdf1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08d2d2ae.css",
+    "static/js/main.fa29fdf1.js"
+  ]
+}
